@@ -1,6 +1,4 @@
-# HTML5 and CSS3: The Essential Guide <!-- omit in toc -->
-
-![react-logo](assets/cover-page.avif)
+![react-logo](assets/cover-page.avif) <!-- markdownlint-disable -->
 
 ---
 
