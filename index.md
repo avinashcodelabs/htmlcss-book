@@ -1,6 +1,6 @@
 # HTML5 and CSS3: The Essential Guide <!-- omit in toc -->
 
-![react-logo](assets/cover-page.png)
+![react-logo](assets/cover-page.avif)
 
 ---
 
