@@ -13,13 +13,33 @@
   - [1.4. The Big Picture](#14-the-big-picture)
 - [2. Basic Web Pages](#2-basic-web-pages)
   - [2.1. Structure of a web page](#21-structure-of-a-web-page)
-  - [2.2. HTML Elements or Tags](#22-html-elements-or-tags)
+  - [2.2. A Few HTML Elements or Tags](#22-a-few-html-elements-or-tags)
     - [2.2.1. Page Title `<title>`](#221-page-title-title)
     - [2.2.2. Paragraphs `<p>`](#222-paragraphs-p)
     - [2.2.3. headings `<h>`](#223-headings-h)
     - [2.2.4. Unordered Lists `<ul>`](#224-unordered-lists-ul)
     - [2.2.5. Ordered Lists `<ol>`](#225-ordered-lists-ol)
-    - [2.2.6. Emphasis (Italic) Elements](#226-emphasis-italic-elements)
+    - [2.2.6. Block and Inline Level](#226-block-and-inline-level)
+    - [2.2.7. Emphasis (Italic) Elements `<em>`](#227-emphasis-italic-elements-em)
+    - [2.2.8. Strong (Bold) Elements `<strong>`](#228-strong-bold-elements-strong)
+  - [2.3. Empty HTML Elements](#23-empty-html-elements)
+    - [2.3.1. Line Breaks `<br />`](#231-line-breaks-br-)
+    - [2.3.2. Horizontal Rules `<hr />`](#232-horizontal-rules-hr-)
+    - [2.3.3. Optional Trailing Slash in an Empty Elements](#233-optional-trailing-slash-in-an-empty-elements)
+  - [2.4. Summary](#24-summary)
+- [3. Links and Images](#3-links-and-images)
+- [4. Hello, CSS](#4-hello-css)
+- [5. The Box Model](#5-the-box-model)
+- [6. CSS Selectors](#6-css-selectors)
+- [7. Floats](#7-floats)
+- [8. Flexbox](#8-flexbox)
+- [9. Grid](#9-grid)
+- [10. Advanced Positioning](#10-advanced-positioning)
+- [11. Responsive Design](#11-responsive-design)
+- [12. Responsive Images](#12-responsive-images)
+- [13. Semantic HTML](#13-semantic-html)
+- [14. Forms](#14-forms)
+- [15. Web Typography](#15-web-typography)
 
 ## 1. Introduction
 
@@ -106,7 +126,7 @@ HTML defines the content of every web page on the Internet. By “marking up” 
 
 - Anything that starts with `<!--` and ends with `-->` will be completely ignored by the browser and these are called comments.
 
-### 2.2. HTML Elements or Tags
+### 2.2. A Few HTML Elements or Tags
 
 Create a page, `index.html` and lets putting the html elements into it.
 
@@ -226,9 +246,233 @@ Would result in,
 
 Notice that the browser automatically incremented the count for each `<li>` element.
 
-#### 2.2.6. Emphasis (Italic) Elements
+#### 2.2.6. Block and Inline Level
 
-<!-- ## 3. Links and Images
+> **Block-level Elements or flow Content:** are HTML elements which are always drawn on a new line. for an instance, `<p>` is a block-level element.
+>
+>
+> **Inline elements or Phrasing Content:** are HTML elements which can affect sections of text anywhere within a line. For example, `<em>` is an inline element that affects a span of text inside of a `paragraph`. It stands for `emphasis`, and it’s typically displayed as italicized text.
+
+Ex,
+
+```html
+<p>Block Level Elements</p>
+
+<p>
+  <em>Sometimes</em>, you need to draw attention to a particular word or phrase.
+</p>
+```
+
+![blockvsinline](assets/blockvsinline.png)
+
+- Look at how `<p>` is rendered in a new line.
+- See how `<em>` only part of a line has been affected, which is characteristic of inline elements.
+
+#### 2.2.7. Emphasis (Italic) Elements `<em>`
+
+It stands for `emphasis`, and it’s typically displayed as italicized text.
+
+```html
+<p>The past can't hurt you anymore, not unless <em>you let it</em>.</p>
+```
+
+![em](assets/em.png)
+
+The part wrapped in `<em>` tags should render as *italics*, as shown above.
+
+#### 2.2.8. Strong (Bold) Elements `<strong>`
+
+If we want to be more emphatic than an `<em>` tag, we can use `<strong>`. It’s an inline element just like `<em>`, and looks like this:
+
+```html
+<p>The past can't hurt you anymore, not unless <strong>you let it</strong>.</p>
+```
+
+![strong](assets/strong.png)
+
+It should be rendered in **bold text**.
+
+Let's combine `<em>` and `<strong>` and see what happens,i.e. nest an `<em>` element in a `<strong>` or vice versa.
+
+```html
+<p>
+  The past can't hurt you anymore, not unless
+  <strong><em>you let it.</em></strong>
+</p>
+```
+
+![strong](assets/strong-em-combine.png)
+
+So, we get a **bold** text in **italics**.
+
+### 2.3. Empty HTML Elements
+
+The HTML tags we’ve seen so far either wrap text content i.e. `<p>`, `<h1>` or `<em>` or other HTML elements such as `<ol>`.But, some of them can be **empty** or **self-closing**.
+  
+  1. Line breaks
+  2. Horizontal rules
+
+are the most common empty elements.
+
+#### 2.3.1. Line Breaks `<br />`
+
+HTML condenses consecutive spaces, tabs, or newlines (together known as **whitespace**) into a single space.
+
+Ex,
+
+```html
+<h2>React</h2>
+
+<p>It's a library to build user interfaces</p>
+
+<p>Post by,
+Avinash</p>
+```
+
+![strong](assets/line-break.png)
+
+The newline after `Post by,` in the above snippet will be transformed into a space instead of displaying as a line break as shown in above screen.
+
+Then, how do we put a empty line, To tell the browser that we want a hard line break, we need to use an explicit `<br />` element, like this:
+
+Ex,
+
+```html
+<h2>React</h2>
+
+<p>It's a library to build user interfaces</p>
+
+<p>Post by,<br />
+Avinash</p>
+```
+
+![strong](assets/line-break-fixed.png)
+
+We can use the `<br/>` element in scenarios such as in email, signature, movie or music credits etc
+
+#### 2.3.2. Horizontal Rules `<hr />`
+
+The `<hr />` element is a **horizontal rule**, which represents a **thematic break**.
+
+For instance,
+
+```html
+<h2>React</h2>
+
+<p>It's a library to build user interfaces</p>
+
+<p>
+  Post by,<br />
+  Avinash
+</p>
+<hr />
+<p>
+  P.S. This page might look like crap, but we'll fix that with some CSS soon.
+</p>
+```
+
+![hr](assets/hr.png)
+
+>Note: Don't abuse the `<br />` and `<hr />` to add lots new line spaces or horizontal line respectively. We can use CSS for presentation and leave the HTML for marking up (content).
+
+❌ BAD
+
+```html
+<p>a paragraph needs some space below it...</p>
+<br /><br /><br /><br /><br /><br /><br /><br />
+<hr />
+<p>So, I added some hard line breaks.</p>
+```
+
+#### 2.3.3. Optional Trailing Slash in an Empty Elements
+
+The trailing slash (/) in all empty HTML elements is entirely optional.
+
+Let us rewrite above example without trailing slash,
+
+```html
+<h2>React</h2>
+
+<p>It's a library to build user interfaces</p>
+
+<p>
+  Post by,<br>
+  Avinash
+</p>
+<hr>
+<p>
+  P.S. This page might look like crap, but we'll fix that with some CSS soon.
+</p>
+```
+
+Notice both `hr` and `br` are not having trailing slash (/) and still the output is same. For sake of consistency and conventions we use the all the tags with closing trailing slash.
+
+### 2.4. Summary
+
+Official HTML elements reference can be found here, <https://developer.mozilla.org/en-US/docs/Web/HTML/Element>
+
+TODO:
+
+List down all the html element at once
+<https://developer.mozilla.org/en-US/docs/Learn/HTML/Cheatsheet>
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Welcome homie</h1>
+    <h2>Welcome homie</h2>
+    <p>Hello HTML, you are awesome.</p>
+    <ul>
+      <li>Facebook</li>
+      <li>Instagram</li>
+      <li>WhatsApp</li>
+    </ul>
+
+    <ol>
+      <li>Facebook</li>
+      <li>Instagram</li>
+      <li>WhatsApp</li>
+    </ol>
+
+    <p>The past can't hurt you anymore, not unless <em>you let it</em>.</p>
+    <p>
+      The past can't hurt you anymore, not unless <strong>you let it</strong>.
+    </p>
+    <p>
+      The past can't hurt you anymore, not unless
+      <strong><em>you let it.</em></strong>
+    </p>
+
+    <h2>React</h2>
+
+    <p>It's a library to build user interfaces</p>
+
+    <p>
+      Post by,<br />
+      Avinash
+    </p>
+    <hr />
+    <p>
+      P.S. This page might look like crap, but we'll fix that with some CSS
+      soon.
+    </p>
+  </body>
+</html>
+```
+
+![html-element-summary](assets/html-element-summary.png)
+
+## 3. Links and Images
+
+Till now we have seen few very important HTML elements, but we were only dealing with a single web page. **Links** and **images** are fundamentally different from those elements in that they deal with external resources.
+
+1. Links point the user to a different HTML document
+2. Images pull another resource into the page.
+
 
 ## 4. Hello, CSS
 
@@ -252,4 +496,4 @@ Notice that the browser automatically incremented the count for each `<li>` elem
 
 ## 14. Forms
 
-## 15. Web Typography -->
+## 15. Web Typography
