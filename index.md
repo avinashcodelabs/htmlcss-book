@@ -1,6 +1,6 @@
 # HTML5 and CSS3: The Essential Guide <!-- omit in toc -->
 
-![react-logo](assets/cover-page.jpg)
+![react-logo](assets/cover-page.png)
 
 ---
 
@@ -39,7 +39,7 @@
 - [12. Responsive Images](#12-responsive-images)
 - [13. Semantic HTML](#13-semantic-html)
 - [14. Forms](#14-forms)
-- [15. Web Typography](#15-web-typography)
+- [15. Web Typography --\>](#15-web-typography---)
 
 ## 1. Introduction
 
@@ -473,7 +473,6 @@ Till now we have seen few very important HTML elements, but we were only dealing
 1. Links point the user to a different HTML document
 2. Images pull another resource into the page.
 
-
 ## 4. Hello, CSS
 
 ## 5. The Box Model
@@ -496,4 +495,4 @@ Till now we have seen few very important HTML elements, but we were only dealing
 
 ## 14. Forms
 
-## 15. Web Typography
+## 15. Web Typography -->
