@@ -477,7 +477,7 @@ Till now we have seen few very important HTML elements, but we were only dealing
 
 ## 6. CSS Selectors
 
-## 7. Floats
+## 7. Float
 
 ## 8. Flexbox
 
